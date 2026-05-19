@@ -1,43 +1,261 @@
+:root {
+  --bg: #0e0f12;
+  --panel: #16171c;
+  --text: #e8e3d9;
+  --muted: #a7a39a;
+
+  --crime: #c0392b;
+  --sea: #2980b9;
+  --space: #8e44ad;
+  --mystery: #b7950b;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f1e8;
-  color: #2e2e2e;
+  background: radial-gradient(circle at top, #1a1c22, #0e0f12);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* textura museo */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/old-mathematics.png");
+  opacity: 0.15;
+  pointer-events: none;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 950px;
   margin: auto;
-  padding: 60px 20px;
+  padding: 120px 30px;
 }
 
+/* TIPOGRAFÍA */
 h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  margin-top: 40px;
-}
-
-.intro {
+  font-family: 'Fraunces', serif;
+  font-size: 4rem;
   margin: 20px 0;
-  font-size: 1.2rem;
 }
 
-.links a {
-  display: block;
-  margin: 10px 0;
+p {
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* INDEX SALAS */
+.rooms {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.room {
+  display: flex;
+  gap: 20px;
+  padding: 22px;
+  background: rgba(255,255,255,0.03);
+  border-left: 2px solid transparent;
   text-decoration: none;
-  color: #2e2e2e;
-  border-bottom: 1px solid #c2b8a3;
-  padding: 5px;
+  color: var(--text);
+  transition: 0.3s;
 }
 
-.links a:hover {
-  color: #a89f8d;
+.room:hover {
+  transform: translateX(10px);
 }
 
-a {
-  display: inline-block;
-  margin-top: 30px;
+.num {
+  font-family: 'IBM Plex Mono';
+  color: var(--muted);
+}
+
+.room p {
+  margin: 5px 0 0;
+}
+
+/* COLORES POR SALA */
+.crime:hover { border-color: var(--crime); }
+.sea:hover { border-color: var(--sea); }
+.space:hover { border-color: var(--space); }
+.mystery:hover { border-color: var(--mystery); }
+
+.container {
+  max-width: 850px;
+  margin: 0 auto;
+
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 80px 30px;
+}
+.container {
+  text-align: left;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 850px;
+}
+body {
+  margin: 0;
+  background: #0e0f12;
+  color: #e8e3d9;
+  overflow-x: hidden;
+}
+
+/* CENTRO COMO PIEZA DE MUSEO */
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px;
+  position: relative;
+}
+
+/* BLOQUE DE TEXTO CENTRAL */
+.text-block {
+  max-width: 650px;
+  text-align: left;
+  z-index: 2;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* IMÁGENES EN ESQUINAS */
+.corner-img {
+  position: absolute;
+  width: 180px;
+  opacity: 0.25;
+  filter: grayscale(100%) contrast(1.2);
+  transition: 0.4s ease;
+  z-index: 1;
+}
+
+.corner-img:hover {
+  opacity: 1;
+  transform: scale(1.2);
+  filter: grayscale(0%);
+}
+
+/* POSICIONES */
+.top-left { top: 40px; left: 40px; }
+.top-right { top: 40px; right: 40px; }
+.bottom-left { bottom: 40px; left: 40px; }
+.bottom-right { bottom: 40px; right: 40px; }
+.corner-img {
+  position: absolute;
+  width: 170px;
+  height: auto;
+
+  opacity: 0.20;
+  filter: grayscale(100%) contrast(1.1);
+  transition: 0.5s ease;
+
+  z-index: 1;
+}
+
+.corner-img:hover {
+  opacity: 1;
+  transform: scale(1.25);
+  filter: grayscale(0%);
+  z-index: 5;
+}
+
+/* posiciones museo */
+.top-left { top: 40px; left: 40px; }
+.top-right { top: 40px; right: 40px; }
+.bottom-left { bottom: 40px; left: 40px; }
+.bottom-right { bottom: 40px; right: 40px; }
+body {
+  margin: 0;
+  background: #0e0f12;
+  color: #e8e3d9;
+  font-family: 'Inter', sans-serif;
+}
+
+/* textura */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/old-mathematics.png");
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* CONTENEDOR (CLAVE PARA QUE FUNCIONE TODO) */
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 40px;
+  position: relative; /* 🔥 IMPORTANTE */
+}
+
+/* TEXTO CENTRADO PERO ORDENADO */
+.text-block {
+  max-width: 750px;
+  z-index: 2;
+  line-height: 1.9;
+  text-align: justify; /* 🔥 ESTO ERA LO QUE FALTABA */
+}
+
+/* TITULO */
+h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 3.2rem;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+/* IMÁGENES (ARREGLADO VISIBILIDAD) */
+.corner-img {
+  position: absolute;
+  width: 180px;
+  opacity: 0.18;
+  filter: grayscale(100%) contrast(1.1);
+  transition: 0.5s ease;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.corner-img:hover {
+  opacity: 1;
+  transform: scale(1.2);
+  filter: grayscale(0%);
+  z-index: 5;
+}
+
+/* POSICIONES */
+.top-left { top: 40px; left: 40px; }
+.top-right { top: 40px; right: 40px; }
+.bottom-left { bottom: 40px; left: 40px; }
+.bottom-right { bottom: 40px; right: 40px; }
+.stamp {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-family: 'IBM Plex Mono';
+  font-size: 10px;
+  color: #c0392b;
+  opacity: 0.6;
+  letter-spacing: 2px;
 }
